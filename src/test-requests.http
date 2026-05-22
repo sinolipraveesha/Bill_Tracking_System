@@ -1,0 +1,24 @@
+### 1. Add a Bill
+POST http://localhost:8080/api/bills
+Content-Type: application/json
+
+{
+  "docNo": "BILL-001",
+  "date": "2026-01-04"
+}
+
+###
+
+### 2. Add a Product to that Bill
+POST http://localhost:8080/api/products/BILL-001
+Content-Type: application/json
+
+{
+  "ianNumber": "IAN-999",
+  "price": 450.00
+}
+
+###
+
+### 3. Search by IAN
+GET http://localhost:8080/api/search/IAN-999
