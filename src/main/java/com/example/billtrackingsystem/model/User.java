@@ -24,4 +24,11 @@ public class User {
 
     @Column(name = "recovery_answer")
     private String recoveryAnswer;
+
+    @Column(name = "preferred_language")
+    private String preferredLanguage = "en";
+
+    public String getPreferredLanguage() {
+        return preferredLanguage == null ? "en" : preferredLanguage;
+    }
 }

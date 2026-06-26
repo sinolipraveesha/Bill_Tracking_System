@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
+@Table(name = "product")
 @Getter @Setter
 public class Product {
     @Id
@@ -19,11 +20,17 @@ public class Product {
     private Double price;
     private Double quantity; // Check if this matches your DB
     private String unit;
+    private String status = "IN_STOCK";
 
     @ManyToOne
     @JoinColumn(name = "bill_doc_no")
     @JsonIgnore
     private Bill bill;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    @JsonIgnore
+    private User user;
 
     // Standard getter logic to prevent NullPointerException
     public Double getPrice() { return price == null ? 0.0 : price; }

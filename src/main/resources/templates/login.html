@@ -108,6 +108,19 @@
 </head>
 <body class="animated-bg min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
 
+<!-- Standalone Language Picker in Top Right -->
+<div class="absolute top-4 right-4 z-50">
+    <div class="flex items-center gap-1.5 bg-white bg-opacity-10 backdrop-blur-md border border-white border-opacity-20 rounded-xl px-3 py-2 shadow-lg">
+        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5c-.313 1.567-.88 3.054-1.678 4.385M9 11c-.62 0-1.218-.117-1.768-.33"></path>
+        </svg>
+        <select id="langPicker" onchange="changeLanguage(this.value)" class="bg-transparent text-sm font-semibold text-white outline-none cursor-pointer">
+            <option value="en" class="text-gray-900">English</option>
+            <option value="it" class="text-gray-900">Italiano</option>
+        </select>
+    </div>
+</div>
+
 <!-- Decorative Elements -->
 <div class="decorative-circle circle-1"></div>
 <div class="decorative-circle circle-2"></div>
@@ -123,15 +136,15 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
             </svg>
         </div>
-        <h1 class="text-4xl font-bold text-white mb-2">Bill Tracker</h1>
-        <p class="text-purple-100 text-sm">Manage your expenses efficiently</p>
+        <h1 class="text-4xl font-bold text-white mb-2" data-i18n="nav.logo">Bill Tracker</h1>
+        <p class="text-purple-100 text-sm" data-i18n="login.subtitle">Manage your expenses efficiently</p>
     </div>
 
     <!-- Login Card -->
     <div class="bg-white rounded-2xl shadow-2xl p-8 backdrop-blur-lg">
         <div class="mb-8">
-            <h2 class="text-2xl font-bold text-gray-800 mb-2">Welcome Back</h2>
-            <p class="text-gray-600 text-sm">Please sign in to your account</p>
+            <h2 class="text-2xl font-bold text-gray-800 mb-2" data-i18n="login.welcome">Welcome Back</h2>
+            <p class="text-gray-600 text-sm" data-i18n="login.signInInstructions">Please sign in to your account</p>
         </div>
 
         <!-- Reset Success Message -->
@@ -142,8 +155,8 @@
                 </svg>
             </div>
             <div>
-                <p class="text-emerald-800 font-semibold text-sm">Password Reset Successful</p>
-                <p class="text-emerald-600 text-xs mt-1">Your password has been changed. Please sign in with your new password.</p>
+                <p class="text-emerald-800 font-semibold text-sm" data-i18n="login.resetSuccessTitle">Password Reset Successful</p>
+                <p class="text-emerald-600 text-xs mt-1" data-i18n="login.resetSuccessDesc">Your password has been changed. Please sign in with your new password.</p>
             </div>
         </div>
 
@@ -155,8 +168,8 @@
                 </svg>
             </div>
             <div>
-                <p class="text-emerald-800 font-semibold text-sm">Registration Successful</p>
-                <p class="text-emerald-600 text-xs mt-1">Your account has been created. Please sign in with your credentials.</p>
+                <p class="text-emerald-800 font-semibold text-sm" data-i18n="login.registerSuccessTitle">Registration Successful</p>
+                <p class="text-emerald-600 text-xs mt-1" data-i18n="login.registerSuccessDesc">Your account has been created. Please sign in with your credentials.</p>
             </div>
         </div>
 
@@ -168,8 +181,8 @@
                 </svg>
             </div>
             <div>
-                <p class="text-red-800 font-semibold text-sm">Authentication Failed</p>
-                <p class="text-red-600 text-xs mt-1">Invalid username or password. Please try again.</p>
+                <p class="text-red-800 font-semibold text-sm" data-i18n="login.authFailedTitle">Authentication Failed</p>
+                <p class="text-red-600 text-xs mt-1" data-i18n="login.authFailedDesc">Invalid username or password. Please try again.</p>
             </div>
         </div>
 
@@ -177,7 +190,7 @@
         <form th:action="@{/login}" method="post">
             <!-- Username Field -->
             <div class="mb-5">
-                <label class="block text-sm font-semibold text-gray-700 mb-2">Username</label>
+                <label class="block text-sm font-semibold text-gray-700 mb-2" data-i18n="login.username">Username</label>
                 <div class="relative">
                     <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                         <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -188,6 +201,7 @@
                             type="text"
                             name="username"
                             required
+                            data-i18n-placeholder="login.usernamePlaceholder"
                             placeholder="Enter your username"
                             class="input-focus w-full border-2 border-gray-200 pl-12 pr-4 py-3 rounded-xl outline-none transition-all text-gray-900 placeholder-gray-400">
                 </div>
@@ -195,7 +209,7 @@
 
             <!-- Password Field -->
             <div class="mb-6">
-                <label class="block text-sm font-semibold text-gray-700 mb-2">Password</label>
+                <label class="block text-sm font-semibold text-gray-700 mb-2" data-i18n="login.password">Password</label>
                 <div class="relative">
                     <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                         <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -206,6 +220,7 @@
                             type="password"
                             name="password"
                             required
+                            data-i18n-placeholder="login.passwordPlaceholder"
                             placeholder="Enter your password"
                             class="input-focus w-full border-2 border-gray-200 pl-12 pr-4 py-3 rounded-xl outline-none transition-all text-gray-900 placeholder-gray-400">
                 </div>
@@ -217,7 +232,7 @@
                     <input type="checkbox" class="w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-500 cursor-pointer">
                     <span class="ml-2 text-sm text-gray-600 group-hover:text-gray-800">Remember me</span>
                 </label>
-                <a href="/forgot-password" class="text-sm font-semibold text-purple-600 hover:text-purple-700">
+                <a href="/forgot-password" class="text-sm font-semibold text-purple-600 hover:text-purple-700" data-i18n="login.forgotPassword">
                     Forgot password?
                 </a>
             </div>
@@ -226,7 +241,7 @@
             <button
                     type="submit"
                     class="btn-login w-full text-white py-3.5 rounded-xl font-bold text-base shadow-lg flex items-center justify-center gap-2">
-                <span>Sign In</span>
+                <span data-i18n="login.signInBtn">Sign In</span>
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                 </svg>
@@ -234,7 +249,7 @@
         </form>
 
         <!-- Divider -->
-        <div class="relative my-6">
+        <div class="relative my-6 bg-white">
             <div class="absolute inset-0 flex items-center">
                 <div class="w-full border-t border-gray-200"></div>
             </div>
@@ -266,8 +281,8 @@
     <!-- Footer -->
     <div class="text-center mt-6">
         <p class="text-white text-sm">
-            Don't have an account?
-            <a href="/register" class="font-semibold underline hover:text-purple-200">Sign up now</a>
+            <span data-i18n="login.noAccount">Don't have an account?</span>
+            <a href="/register" class="font-semibold underline hover:text-purple-200" data-i18n="login.signUpNow">Sign up now</a>
         </p>
     </div>
 </div>
@@ -277,5 +292,54 @@
     <p>© 2024 Bill Tracker. All rights reserved.</p>
 </div>
 
+<!-- i18next Client-Side Scripts -->
+<script src="https://unpkg.com/i18next@21.6.14/dist/umd/i18next.min.js"></script>
+<script>
+    const savedLang = localStorage.getItem('lng') || 'en';
+    document.getElementById('langPicker').value = savedLang;
+
+    async function changeLanguage(lang) {
+        localStorage.setItem('lng', lang);
+        await i18next.changeLanguage(lang);
+        translatePage();
+    }
+
+    function translatePage() {
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            const translation = i18next.t(key);
+            if (translation) {
+                if (el.tagName === 'INPUT' && (el.type === 'text' || el.type === 'number' || el.type === 'password')) {
+                    el.placeholder = translation;
+                } else {
+                    el.innerText = translation;
+                }
+            }
+        });
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+            const key = el.getAttribute('data-i18n-placeholder');
+            el.placeholder = i18next.t(key);
+        });
+    }
+
+    async function initI18n() {
+        try {
+            const enRes = await fetch('/locales/en.json').then(r => r.json());
+            const itRes = await fetch('/locales/it.json').then(r => r.json());
+            
+            await i18next.init({
+                lng: savedLang,
+                resources: {
+                    en: { translation: enRes },
+                    it: { translation: itRes }
+                }
+            });
+            translatePage();
+        } catch (e) {
+            console.error('Error initializing translation:', e);
+        }
+    }
+    document.addEventListener('DOMContentLoaded', initI18n);
+</script>
 </body>
 </html>

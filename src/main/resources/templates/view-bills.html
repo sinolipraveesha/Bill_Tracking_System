@@ -70,81 +70,7 @@
 </head>
 <body class="bg-gradient-to-br from-slate-50 to-slate-100 min-h-screen">
 
-<!-- Premium Navigation Header -->
-<header class="bg-white shadow-md border-b border-slate-100 sticky top-0 z-50 backdrop-blur-md bg-opacity-95 mb-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16 items-center">
-            <!-- Left: Logo & Main Navigation -->
-            <div class="flex items-center gap-8">
-                <a href="/" class="flex items-center gap-3 group">
-                    <div class="w-10 h-10 bg-gradient-to-tr from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-105 transition-all">
-                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                        </svg>
-                    </div>
-                    <span class="text-xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Bill Tracker</span>
-                </a>
-
-                <nav class="hidden md:flex items-center gap-1">
-                    <a href="/" class="px-4 py-2 rounded-xl text-sm font-semibold text-gray-700 hover:text-indigo-600 hover:bg-slate-50 transition-all flex items-center gap-2">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-                        </svg>
-                        Dashboard
-                    </a>
-                    <a href="/all-bills" class="px-4 py-2 rounded-xl text-sm font-semibold text-indigo-600 bg-indigo-50 transition-all flex items-center gap-2">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
-                        </svg>
-                        All Bills
-                    </a>
-                    <a href="/search-ian" class="px-4 py-2 rounded-xl text-sm font-semibold text-gray-700 hover:text-indigo-600 hover:bg-slate-50 transition-all flex items-center gap-2">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                        </svg>
-                        Search IAN
-                    </a>
-                    <a href="/profile" class="px-4 py-2 rounded-xl text-sm font-semibold text-gray-700 hover:text-indigo-600 hover:bg-slate-50 transition-all flex items-center gap-2">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                        </svg>
-                        Profile Settings
-                    </a>
-                </nav>
-            </div>
-
-            <!-- Right: User Menu & Profile & Logout -->
-            <div class="flex items-center gap-4">
-                <div class="hidden sm:flex flex-col text-right">
-                    <span class="text-xs text-gray-400 font-medium">Logged in as</span>
-                    <span class="text-sm font-bold text-gray-800" th:text="${#authentication.name}">admin</span>
-                </div>
-
-                <div class="h-8 w-px bg-slate-200 hidden sm:block"></div>
-
-                <a href="/profile" class="p-2 rounded-xl hover:bg-slate-50 text-gray-500 hover:text-indigo-600 transition-all flex items-center gap-2" title="Profile Settings">
-                    <div class="w-9 h-9 bg-slate-100 rounded-xl flex items-center justify-center hover:bg-slate-200 transition-all">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                        </svg>
-                    </div>
-                </a>
-
-                <form th:action="@{/logout}" method="post" class="inline">
-                    <button type="submit" class="p-2 rounded-xl hover:bg-red-50 text-gray-500 hover:text-red-600 transition-all flex items-center justify-center" title="Log Out">
-                        <div class="w-9 h-9 bg-red-50 text-red-500 rounded-xl flex items-center justify-center hover:bg-red-100 transition-all">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
-                            </svg>
-                        </div>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-</header>
+<header th:replace="~{fragments/header :: header}"></header>
 
 <div class="max-w-7xl mx-auto px-4 pb-12">
 
@@ -160,22 +86,22 @@
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                         </svg>
-                        Billing Records
+                        <span data-i18n="bills.title">All Bills</span>
                     </h1>
-                    <p class="text-purple-100 text-sm">Manage and track all your billing records</p>
+                    <p class="text-purple-100 text-sm" data-i18n="bills.subtitle">Browse and manage your saved invoices</p>
                 </div>
                 <div class="flex flex-wrap gap-3">
                     <a href="/" class="btn-success text-white px-6 py-3 rounded-xl font-semibold shadow-lg flex items-center gap-2">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
                         </svg>
-                        New Bill
+                        <span data-i18n="dashboard.newBill">New Bill</span>
                     </a>
                     <a href="/search-ian" class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-6 py-3 rounded-xl font-semibold transition-all flex items-center gap-2 backdrop-blur-sm">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                         </svg>
-                        Search IAN
+                        <span data-i18n="nav.searchIan">Search IAN</span>
                     </a>
                 </div>
             </div>
@@ -193,6 +119,7 @@
                     <input
                             type="text"
                             name="docNo"
+                            data-i18n-placeholder="bills.searchPlaceholder"
                             placeholder="Search by Document Number..."
                             class="input-focus w-full border-2 border-gray-200 pl-12 pr-4 py-3 rounded-xl outline-none transition-all">
                 </div>
@@ -200,13 +127,13 @@
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                     </svg>
-                    Search
+                    <span data-i18n="bills.searchBtn">Search</span>
                 </button>
                 <a th:href="@{/all-bills}" class="bg-white hover:bg-gray-50 border-2 border-gray-200 px-6 py-3 rounded-xl font-semibold text-gray-700 transition-all flex items-center justify-center gap-2">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
                     </svg>
-                    Reset
+                    <span data-i18n="bills.clearBtn">Clear</span>
                 </a>
             </form>
         </div>
@@ -223,7 +150,7 @@
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"></path>
                             </svg>
-                            Doc No
+                            <span data-i18n="bills.tableDoc">Document No</span>
                         </div>
                     </th>
                     <th class="text-left p-4 text-xs font-bold text-gray-600 uppercase tracking-wider">
@@ -231,7 +158,7 @@
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
                             </svg>
-                            IAN Codes
+                            <span data-i18n="bills.tableProducts">Associated Products</span>
                         </div>
                     </th>
                     <th class="text-left p-4 text-xs font-bold text-gray-600 uppercase tracking-wider">
@@ -239,7 +166,15 @@
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                             </svg>
-                            Date
+                            <span data-i18n="bills.tableDate">Date</span>
+                        </div>
+                    </th>
+                    <th class="text-left p-4 text-xs font-bold text-gray-600 uppercase tracking-wider">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span data-i18n="bills.tableStatus">Status</span>
                         </div>
                     </th>
                     <th class="text-left p-4 text-xs font-bold text-gray-600 uppercase tracking-wider">
@@ -247,7 +182,7 @@
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
                             </svg>
-                            Items
+                            <span data-i18n="dashboard.tableQuantity">Quantity</span>
                         </div>
                     </th>
                     <th class="text-right p-4 text-xs font-bold text-gray-600 uppercase tracking-wider">
@@ -255,10 +190,10 @@
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
-                            Total Amount
+                            <span data-i18n="bills.tableAmount">Total Amount</span>
                         </div>
                     </th>
-                    <th class="text-center p-4 text-xs font-bold text-gray-600 uppercase tracking-wider">
+                    <th class="text-center p-4 text-xs font-bold text-gray-600 uppercase tracking-wider" data-i18n="bills.tableActions">
                         Actions
                     </th>
                 </tr>
@@ -272,20 +207,34 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                                 </svg>
                             </div>
-                            <span class="font-bold text-gray-900" th:text="${bill.docNo}">DOC-001</span>
+                            <span class="font-bold text-gray-900" th:text="${bill.displayDocNo}">DOC-001</span>
                         </div>
                     </td>
                     <td class="p-4">
-                        <div class="flex flex-wrap gap-1.5 max-w-xs">
-                                <span th:each="product : ${bill.products}"
-                                      class="ian-chip inline-flex items-center bg-slate-100 hover:bg-slate-200 text-slate-700 px-2.5 py-1 rounded-lg text-xs font-mono font-semibold border border-slate-200 cursor-pointer"
-                                      th:text="${product.ian}">
-                                    123456
-                                </span>
+                        <div class="flex flex-col gap-2 max-w-sm">
+                            <div th:each="product : ${bill.products}" class="flex items-center justify-between gap-2 bg-white border border-slate-200 rounded-lg shadow-sm p-1.5 transition-all hover:border-purple-300">
+                                <div class="flex flex-col overflow-hidden">
+                                    <span class="text-xs font-mono font-bold text-indigo-600 truncate" th:text="${product.ian}">123456</span>
+                                    <span class="text-[10px] text-gray-500 truncate" th:text="${product.name != null ? product.name : 'Unknown Product'}">Name</span>
+                                </div>
+                                <select th:data-id="${product.id}" onchange="updateProductStatus(this)" 
+                                        class="bg-gray-50 border border-gray-200 text-xs font-bold rounded-md focus:ring-purple-500 focus:border-purple-500 outline-none py-1 px-2 cursor-pointer"
+                                        th:classappend="${product.status == 'SOLD' ? 'text-gray-500' : 'text-green-600'}">
+                                    <option value="IN_STOCK" th:selected="${product.status == 'IN_STOCK'}" class="text-green-600">In Stock</option>
+                                    <option value="SOLD" th:selected="${product.status == 'SOLD'}" class="text-gray-500">Sold</option>
+                                </select>
+                            </div>
                         </div>
                     </td>
                     <td class="p-4">
                         <span class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium bg-blue-50 text-blue-700 border border-blue-200" th:text="${bill.date}">2024-01-01</span>
+                    </td>
+                    <td class="p-4">
+                        <select th:data-doc="${bill.docNo}" onchange="updateBillStatus(this)" class="bg-gray-50 border border-gray-200 text-gray-900 text-xs font-bold rounded-lg focus:ring-purple-500 focus:border-purple-500 outline-none p-2 shadow-sm transition-all cursor-pointer">
+                            <option value="IN_STOCK" th:selected="${bill.overallStatus == 'IN_STOCK'}" class="text-green-600">In Stock</option>
+                            <option value="SOLD" th:selected="${bill.overallStatus == 'SOLD'}" class="text-gray-500">Sold</option>
+                            <option value="MIXED" th:if="${bill.overallStatus == 'MIXED'}" selected disabled class="text-amber-500">Mixed</option>
+                        </select>
                     </td>
                     <td class="p-4">
                             <span class="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-bold bg-green-50 text-green-700 border border-green-200">
@@ -311,28 +260,28 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
                                 </svg>
-                                View
+                                <span data-i18n="bills.actionView">View</span>
                             </a>
                             <a th:href="@{/edit-bill/{docNo}(docNo=${bill.docNo})}"
                                class="action-btn inline-flex items-center gap-1 text-amber-600 hover:text-amber-700 bg-amber-50 hover:bg-amber-100 px-3 py-2 rounded-lg font-semibold text-sm transition-all">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
                                 </svg>
-                                Edit
+                                <span data-i18n="bills.actionEdit">Edit</span>
                             </a>
                             <a th:href="@{/export-pdf/{docNo}(docNo=${bill.docNo})}"
                                class="action-btn inline-flex items-center gap-1 text-red-600 hover:text-red-700 bg-red-50 hover:bg-red-100 px-3 py-2 rounded-lg font-semibold text-sm transition-all">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
                                 </svg>
-                                PDF
+                                <span data-i18n="bills.actionPdf">PDF</span>
                             </a>
-                            <form th:action="@{/delete-bill/{docNo}(docNo=${bill.docNo})}" method="post" onsubmit="return confirm('Are you sure you want to delete this bill? This action cannot be undone.');" class="inline">
+                            <form th:action="@{/delete-bill/{docNo}(docNo=${bill.docNo})}" method="post" onsubmit="return confirm(i18next.t('bills.deleteConfirm'));" class="inline">
                                 <button type="submit" class="action-btn inline-flex items-center gap-1 text-gray-500 hover:text-red-600 hover:bg-red-50 px-3 py-2 rounded-lg font-semibold text-sm transition-all">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
                                     </svg>
-                                    Delete
+                                    <span data-i18n="bills.actionDelete">Delete</span>
                                 </button>
                             </form>
                         </div>
@@ -349,17 +298,74 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                 </svg>
             </div>
-            <h3 class="text-2xl font-bold text-gray-800 mb-2">No Bills Found</h3>
-            <p class="text-gray-600 mb-6">Start by creating your first bill or adjust your search criteria.</p>
+            <h3 class="text-2xl font-bold text-gray-800 mb-2" data-i18n="bills.noBills">No Bills Found</h3>
             <a href="/" class="btn-success text-white px-6 py-3 rounded-xl font-semibold shadow-lg inline-flex items-center gap-2">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
                 </svg>
-                Create Your First Bill
+                <span data-i18n="dashboard.newBill">Create Your First Bill</span>
             </a>
         </div>
     </div>
 </div>
 
+<script>
+    async function updateBillStatus(selectElement) {
+        const docNo = selectElement.getAttribute('data-doc');
+        const newStatus = selectElement.value;
+        try {
+            const res = await fetch('/api/bills/' + encodeURIComponent(docNo) + '/status', {
+                method: 'PATCH',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ status: newStatus })
+            });
+            if (res.ok) {
+                selectElement.classList.add('border-green-500', 'bg-green-50');
+                setTimeout(() => {
+                    selectElement.classList.remove('border-green-500', 'bg-green-50');
+                    location.reload(); // reload to reflect any mixed -> solid state changes visually
+                }, 1000);
+            } else {
+                alert('Failed to update status');
+            }
+        } catch(e) {
+            console.error(e);
+            alert('Error updating status');
+        }
+    }
+
+    async function updateProductStatus(selectElement) {
+        const id = selectElement.getAttribute('data-id');
+        const newStatus = selectElement.value;
+        try {
+            const res = await fetch('/api/bills/products/' + encodeURIComponent(id) + '/status', {
+                method: 'PATCH',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ status: newStatus })
+            });
+            if (res.ok) {
+                // Flash success color
+                selectElement.classList.add('border-green-500', 'bg-green-50');
+                if (newStatus === 'SOLD') {
+                    selectElement.classList.remove('text-green-600');
+                    selectElement.classList.add('text-gray-500');
+                } else {
+                    selectElement.classList.remove('text-gray-500');
+                    selectElement.classList.add('text-green-600');
+                }
+                setTimeout(() => {
+                    selectElement.classList.remove('border-green-500', 'bg-green-50');
+                    // Reload to update the overall bill status column if needed
+                    location.reload(); 
+                }, 800);
+            } else {
+                alert('Failed to update product status');
+            }
+        } catch(e) {
+            console.error(e);
+            alert('Error updating status');
+        }
+    }
+</script>
 </body>
 </html>

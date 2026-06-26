@@ -35,6 +35,7 @@ public class RegisterController {
                                @RequestParam String confirmPassword,
                                @RequestParam String recoveryQuestion,
                                @RequestParam String recoveryAnswer,
+                               @RequestParam(defaultValue = "en") String preferredLanguage,
                                Model model) {
         if (principal != null) {
             return "redirect:/";
@@ -62,6 +63,7 @@ public class RegisterController {
         newUser.setPassword(password);
         newUser.setRecoveryQuestion(recoveryQuestion);
         newUser.setRecoveryAnswer(recoveryAnswer);
+        newUser.setPreferredLanguage(preferredLanguage);
 
         userRepository.save(newUser);
 

@@ -43,6 +43,7 @@ public class ProfileController {
                                  @RequestParam(required = false) String password,
                                  @RequestParam String recoveryQuestion,
                                  @RequestParam String recoveryAnswer,
+                                 @RequestParam String preferredLanguage,
                                  Model model) {
         if (principal == null) {
             return "redirect:/login";
@@ -64,6 +65,7 @@ public class ProfileController {
         }
         user.setRecoveryQuestion(recoveryQuestion);
         user.setRecoveryAnswer(recoveryAnswer);
+        user.setPreferredLanguage(preferredLanguage);
         userRepository.save(user);
 
         // Dynamically update authentication token in security context
