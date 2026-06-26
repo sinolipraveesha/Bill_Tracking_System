@@ -326,8 +326,17 @@
     }
 
     function printStorageTag() {
-        const img = document.getElementById('qrcode-img');
-        const src = img ? img.src : '';
+        const qrcodeDiv = document.getElementById('qrcode');
+        let src = '';
+        if (qrcodeDiv) {
+            const canvas = qrcodeDiv.querySelector('canvas');
+            const img = qrcodeDiv.querySelector('img');
+            if (canvas) {
+                src = canvas.toDataURL("image/png");
+            } else if (img && img.src) {
+                src = img.src;
+            }
+        }
         
         if (!src) {
             alert('QR Code is still generating, please wait a moment.');
