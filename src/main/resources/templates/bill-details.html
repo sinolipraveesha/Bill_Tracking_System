@@ -288,8 +288,15 @@
         
         if (docNo) {
             // Strip trailing slash if present to avoid double slashes
-            const cleanBaseUrl = baseAppUrl.replace(/\/$/, "");
+            let cleanBaseUrl = baseAppUrl.replace(/\/$/, "");
+            
+            // Auto-detect public domains if the server defaulted to localhost (e.g. forgot to set ENV on Render)
+            if (cleanBaseUrl.includes('localhost') && window.location.hostname !== 'localhost') {
+                cleanBaseUrl = window.location.origin;
+            }
+            
             const qrUrl = cleanBaseUrl + '/bills/details/' + docNo;
+            console.log("Generating QR for:", qrUrl);
             
             new QRCode(document.getElementById("qrcode"), {
                 text: qrUrl,

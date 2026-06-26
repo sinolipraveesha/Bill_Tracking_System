@@ -5,6 +5,7 @@ com\example\billtrackingsystem\controller\LoginController.class
 com\example\billtrackingsystem\controller\BillApiController.class
 com\example\billtrackingsystem\controller\ProfileController.class
 com\example\billtrackingsystem\controller\RegisterController.class
+com\example\billtrackingsystem\controller\GlobalControllerAdvice.class
 com\example\billtrackingsystem\controller\BillController.class
 com\example\billtrackingsystem\service\CustomUserDetailsService.class
 com\example\billtrackingsystem\repository\UserRepository.class
@@ -14,4 +15,6 @@ com\example\billtrackingsystem\BillTrackingSystemApplication.class
 com\example\billtrackingsystem\model\User.class
 com\example\billtrackingsystem\repository\ProductRepository.class
 com\example\billtrackingsystem\controller\ForgotPasswordController.class
+com\example\billtrackingsystem\controller\UserApiController.class
+com\example\billtrackingsystem\service\GeminiService.class
 com\example\billtrackingsystem\repository\BillRepository.class

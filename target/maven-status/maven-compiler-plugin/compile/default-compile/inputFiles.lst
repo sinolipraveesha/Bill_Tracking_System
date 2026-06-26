@@ -4,9 +4,11 @@ C:\Users\Sinoli\OneDrive\Desktop\ps\bill-tracking-system-main\src\main\java\com\
 C:\Users\Sinoli\OneDrive\Desktop\ps\bill-tracking-system-main\src\main\java\com\example\billtrackingsystem\controller\BillApiController.java
 C:\Users\Sinoli\OneDrive\Desktop\ps\bill-tracking-system-main\src\main\java\com\example\billtrackingsystem\controller\BillController.java
 C:\Users\Sinoli\OneDrive\Desktop\ps\bill-tracking-system-main\src\main\java\com\example\billtrackingsystem\controller\ForgotPasswordController.java
+C:\Users\Sinoli\OneDrive\Desktop\ps\bill-tracking-system-main\src\main\java\com\example\billtrackingsystem\controller\GlobalControllerAdvice.java
 C:\Users\Sinoli\OneDrive\Desktop\ps\bill-tracking-system-main\src\main\java\com\example\billtrackingsystem\controller\LoginController.java
 C:\Users\Sinoli\OneDrive\Desktop\ps\bill-tracking-system-main\src\main\java\com\example\billtrackingsystem\controller\ProfileController.java
 C:\Users\Sinoli\OneDrive\Desktop\ps\bill-tracking-system-main\src\main\java\com\example\billtrackingsystem\controller\RegisterController.java
+C:\Users\Sinoli\OneDrive\Desktop\ps\bill-tracking-system-main\src\main\java\com\example\billtrackingsystem\controller\UserApiController.java
 C:\Users\Sinoli\OneDrive\Desktop\ps\bill-tracking-system-main\src\main\java\com\example\billtrackingsystem\model\Bill.java
 C:\Users\Sinoli\OneDrive\Desktop\ps\bill-tracking-system-main\src\main\java\com\example\billtrackingsystem\model\Product.java
 C:\Users\Sinoli\OneDrive\Desktop\ps\bill-tracking-system-main\src\main\java\com\example\billtrackingsystem\model\ProductSearchResult.java
@@ -15,3 +17,4 @@ C:\Users\Sinoli\OneDrive\Desktop\ps\bill-tracking-system-main\src\main\java\com\
 C:\Users\Sinoli\OneDrive\Desktop\ps\bill-tracking-system-main\src\main\java\com\example\billtrackingsystem\repository\ProductRepository.java
 C:\Users\Sinoli\OneDrive\Desktop\ps\bill-tracking-system-main\src\main\java\com\example\billtrackingsystem\repository\UserRepository.java
 C:\Users\Sinoli\OneDrive\Desktop\ps\bill-tracking-system-main\src\main\java\com\example\billtrackingsystem\service\CustomUserDetailsService.java
+C:\Users\Sinoli\OneDrive\Desktop\ps\bill-tracking-system-main\src\main\java\com\example\billtrackingsystem\service\GeminiService.java
