@@ -24,7 +24,7 @@ import java.util.Optional;
 @Controller
 public class BillController {
 
-    @Value("${BASE_APP_URL:http://localhost:8080}")
+    @Value("${app.base-url}")
     private String baseAppUrl;
 
     @Autowired
