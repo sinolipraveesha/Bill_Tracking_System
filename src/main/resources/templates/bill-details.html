@@ -280,13 +280,21 @@
 <script th:inline="javascript">
     /*<![CDATA[*/
     let docNo = '';
+    let baseAppUrl = '';
+    
     document.addEventListener('DOMContentLoaded', function() {
         docNo = /*[[${bill.docNo}]]*/ '';
+        baseAppUrl = /*[[${baseAppUrl}]]*/ 'http://localhost:8080';
+        
         if (docNo) {
+            // Strip trailing slash if present to avoid double slashes
+            const cleanBaseUrl = baseAppUrl.replace(/\/$/, "");
+            const qrUrl = cleanBaseUrl + '/bills/details/' + docNo;
+            
             new QRCode(document.getElementById("qrcode"), {
-                text: docNo,
-                width: 64,
-                height: 64,
+                text: qrUrl,
+                width: 150,
+                height: 150,
                 colorDark : "#000000",
                 colorLight : "#ffffff",
                 correctLevel : QRCode.CorrectLevel.H

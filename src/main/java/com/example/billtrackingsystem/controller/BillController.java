@@ -7,6 +7,7 @@ import com.example.billtrackingsystem.repository.BillRepository;
 import com.example.billtrackingsystem.repository.ProductRepository;
 import com.example.billtrackingsystem.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +23,9 @@ import java.util.Optional;
 
 @Controller
 public class BillController {
+
+    @Value("${BASE_APP_URL:http://localhost:8080}")
+    private String baseAppUrl;
 
     @Autowired
     private BillRepository billRepository;
@@ -52,7 +56,7 @@ public class BillController {
     }
 
     // 2. VIEW SPECIFIC BILL DETAILS
-    @GetMapping("/view-bill/{docNo}")
+    @GetMapping({"/view-bill/{docNo}", "/bills/details/{docNo}"})
     public String viewBillDetails(@PathVariable String docNo, Model model, Principal principal) {
         if (principal == null) {
             return "redirect:/login";
@@ -61,6 +65,7 @@ public class BillController {
         Optional<Bill> bill = billRepository.findByDocNoAndUser(docNo, user);
         if (bill.isPresent()) {
             model.addAttribute("bill", bill.get());
+            model.addAttribute("baseAppUrl", baseAppUrl);
             return "bill-details";
         }
         return "redirect:/all-bills";
